@@ -68,7 +68,6 @@ function App() {
         xAxisName: "Country/US State",
         //Set the y-axis name
         yAxisName: "Deaths",
-        numberSuffix: "K",
         //Set the theme for your chart
         theme: "fusion"
       },
