@@ -1,0 +1,23 @@
+.c-header {
+  padding: 50px 0 25px;
+  text-align: center;
+
+  &__title {
+    color: $color--white;
+    text-transform: uppercase;
+  }
+  &__sub-title {
+    font-weight: 600;
+    color: $color--element-block;
+    position: relative;
+
+    &::after {
+      background-color: $color--element-block;
+      content: "";
+      display: block;
+      height: 1px;
+      margin: 25px auto 0;
+      width: 45px;
+    }
+  }
+}

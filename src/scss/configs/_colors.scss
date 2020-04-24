@@ -1,4 +1,26 @@
 $color--white: #fff;
 $color--black: #000;
-
 $color--dark-grey: #414042;
+
+$color--element-block: rgba($color--dark-grey, 0.7);
+
+/* Color Theme Swatches in Hex */
+$Global-Citizen-1-hex: #f25ca2;
+$Global-Citizen-2-hex: #0433bf;
+$Global-Citizen-3-hex: #032ca6;
+$Global-Citizen-4-hex: #021859;
+$Global-Citizen-5-hex: #0b9ed9;
+
+/* Color Theme Swatches in RGBA */
+$Global-Citizen-1-rgba: rgba(242, 92, 162, 1);
+$Global-Citizen-2-rgba: rgba(3, 50, 191, 1);
+$Global-Citizen-3-rgba: rgba(3, 43, 165, 1);
+$Global-Citizen-4-rgba: rgba(1, 23, 89, 1);
+$Global-Citizen-5-rgba: rgba(10, 158, 216, 1);
+
+/* Color Theme Swatches in HSLA */
+$Global-Citizen-1-hsla: hsla(331, 85, 65, 1);
+$Global-Citizen-2-hsla: hsla(225, 96, 38, 1);
+$Global-Citizen-3-hsla: hsla(225, 96, 33, 1);
+$Global-Citizen-4-hsla: hsla(225, 96, 17, 1);
+$Global-Citizen-5-hsla: hsla(196, 90, 44, 1);

@@ -1,0 +1,25 @@
+.c-nav {
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  li {
+    width: 220px;
+    display: block;
+  }
+
+  button {
+    background-color: $color--white;
+    display: block;
+    padding: 20px 0;
+    text-align: center;
+    transition: ease all 0.3s;
+    width: 100%;
+
+    &:hover {
+      background-color: $color--element-block;
+      color: $color--white;
+    }
+  }
+}

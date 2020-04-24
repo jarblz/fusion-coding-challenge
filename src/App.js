@@ -4,20 +4,24 @@ import "./scss/styles.scss";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="c-header">
+        <div className="l-container">
+          <h1 className="el-h1 c-header__title">Chart Viewer</h1>
+          <h2 className="el-h4 c-header__sub-title">Choose a chart</h2>
+        </div>
       </header>
+      <nav className="c-nav">
+        <div className="l-container">
+          <ul>
+            <li>
+              <button>Show First Graph</button>
+            </li>
+            <li>
+              <button>Show Second Graph</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
   );
 }
