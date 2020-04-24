@@ -40,6 +40,7 @@ function createRecoveryObj(old) {
 function App() {
   const [ deaths, setDeaths ] = useState({})
   const [ recovery, setRecovery ] = useState({})
+  const [ selected, setSelected ] = useState('deaths')
 
   const fetchDeathStats = async () => {
     const covidStats = await axios.get('https://covid19.mathdro.id/api/deaths')
@@ -115,22 +116,26 @@ function App() {
         <div className="l-container">
           <ul>
             <li>
-              <button>Show First Graph</button>
+              <button className={`c-nav__button${selected === 'deaths' ? ' c-nav__button--selected' : ''}`} onClick={() => { setSelected('deaths')}}>Deaths</button>
             </li>
             <li>
-              <button>Show Second Graph</button>
+              <button className={`c-nav__button${selected === 'recovery' ? ' c-nav__button--selected' : ''}`} onClick={() => { setSelected('recovery')}}>Recovery</button>
             </li>
           </ul>
         </div>
       </nav>
       <div className="c-charts">
         <div className="l-container">
-          <div className="c-charts__item">
-            <ReactFC {...deathCharts} />
-          </div>
-          <div className="c-charts__item">
-            <ReactFC {...recoveryCharts} />
-          </div>
+          {selected === 'deaths' &&
+            <div className="c-charts__item">
+              <ReactFC {...deathCharts} />
+            </div>
+          }
+          {selected === 'recovery' &&
+            <div className="c-charts__item">
+              <ReactFC {...recoveryCharts} />
+            </div>
+          }
         </div>
       </div>
     </div>
