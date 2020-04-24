@@ -22,6 +22,13 @@ function App() {
           </ul>
         </div>
       </nav>
+      <div className="c-charts">
+        <div className="l-container">
+          <div className="c-charts__item">
+            <ReactFC {...chartConfigs} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
