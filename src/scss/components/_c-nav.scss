@@ -1,0 +1,39 @@
+.c-nav {
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  li {
+    width: 50%;
+    display: block;
+    max-width: 220px;
+  }
+
+  &__button {
+    background-color: $Global-Citizen-1-hex;
+    color: $color--white;
+    display: block;
+    font-weight: 600;
+    padding: 20px 0;
+    text-align: center;
+    transition: ease all 0.3s;
+    width: 100%;
+
+    &:hover {
+      background-color: $color--element-block;
+      color: $color--white;
+    }
+
+    &--selected {
+      background-color: $color--white;
+      color: $color--dark-grey;
+      cursor: default;
+
+      &:hover {
+        background-color: $color--white;
+        color: $color--dark-grey;
+      }
+    }
+  }
+}
