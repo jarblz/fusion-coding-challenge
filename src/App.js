@@ -9,7 +9,7 @@ import "./scss/styles.scss";
 
 ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
-function createObj(old) {
+function createDeathObj(old) {
   return old.map(oldItem => {
     let returnObj = {}
     if (oldItem.countryRegion === 'US') {
@@ -23,13 +23,29 @@ function createObj(old) {
   })
 }
 
+function createRecoveryObj(old) {
+  return old.map(oldItem => {
+    let returnObj = {}
+    if (oldItem.countryRegion === 'US') {
+      returnObj.label = oldItem.provinceState
+    } else {
+      returnObj.label = oldItem.countryRegion
+    }
+
+    returnObj.value = oldItem.recovered;
+    return returnObj
+  })
+}
+
 function App() {
   const [ deaths, setDeaths ] = useState({})
+  const [ recovery, setRecovery ] = useState({})
 
   const fetchDeathStats = async () => {
-    const COVIDdeaths = await axios.get('https://covid19.mathdro.id/api/deaths')
-    const first8Deaths = await COVIDdeaths.data.slice(0, 8)
-    setDeaths(createObj(first8Deaths))
+    const covidStats = await axios.get('https://covid19.mathdro.id/api/deaths')
+    const first8Stats = await covidStats.data.slice(0, 8)
+    setDeaths(createDeathObj(first8Stats))
+    setRecovery(createRecoveryObj(first8Stats))
   }
 
   useEffect(() => {
@@ -40,7 +56,7 @@ function App() {
     console.log(deaths);
   }
 
-  const chartConfigs = {
+  const deathCharts = {
     type: "column2d", // The chart type
     width: "800", // Width of the chart
     height: "400", // Height of the chart
@@ -64,6 +80,28 @@ function App() {
     }
   };
 
+  const recoveryCharts = {
+    type: "column2d", // The chart type
+    width: "800", // Width of the chart
+    height: "400", // Height of the chart
+    dataFormat: "json", // Data type
+    dataSource: {
+      // Chart Configuration
+      chart: {
+        //Set the chart caption
+        caption: "Recovery By Region With Most Daily COVID-19 Deaths",
+        //Set the chart subcaption
+        //Set the x-axis name
+        xAxisName: "Country/US State",
+        //Set the y-axis name
+        yAxisName: "Recovery",
+        //Set the theme for your chart
+        theme: "fusion"
+      },
+      // Chart Data
+      data: recovery
+    }
+  };
 
   return (
     <div className="App">
@@ -88,7 +126,10 @@ function App() {
       <div className="c-charts">
         <div className="l-container">
           <div className="c-charts__item">
-            <ReactFC {...chartConfigs} />
+            <ReactFC {...deathCharts} />
+          </div>
+          <div className="c-charts__item">
+            <ReactFC {...recoveryCharts} />
           </div>
         </div>
       </div>
