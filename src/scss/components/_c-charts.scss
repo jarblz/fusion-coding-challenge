@@ -2,7 +2,11 @@
   &__item {
     background-color: $color--white;
     margin: 0 auto;
-    padding: 80px 40px;
+    padding: 40px 10px;
     text-align: center;
+
+    @media only screen and (min-width: 767px) {
+      padding: 80px 40px;
+    }
   }
 }

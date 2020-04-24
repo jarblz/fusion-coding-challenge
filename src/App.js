@@ -53,13 +53,9 @@ function App() {
     fetchDeathStats();
   }, [])
 
-  if (deaths) {
-    console.log(deaths);
-  }
-
   const deathCharts = {
     type: "column2d", // The chart type
-    width: "800", // Width of the chart
+    width: "100%", // Width of the chart
     height: "400", // Height of the chart
     dataFormat: "json", // Data type
     dataSource: {
@@ -83,7 +79,7 @@ function App() {
 
   const recoveryCharts = {
     type: "column2d", // The chart type
-    width: "800", // Width of the chart
+    width: "100%", // Width of the chart
     height: "400", // Height of the chart
     dataFormat: "json", // Data type
     dataSource: {
@@ -108,8 +104,8 @@ function App() {
     <div className="App">
       <header className="c-header">
         <div className="l-container">
-          <h1 className="el-h1 c-header__title">Chart Viewer</h1>
-          <h2 className="el-h4 c-header__sub-title">Choose a chart</h2>
+          <h1 className="el-h1 c-header__title">COVID Stats</h1>
+          <h2 className="el-h4 c-header__sub-title">Top 8 Regions by Death</h2>
         </div>
       </header>
       <nav className="c-nav">
